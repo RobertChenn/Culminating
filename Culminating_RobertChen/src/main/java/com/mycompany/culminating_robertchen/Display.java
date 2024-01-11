@@ -19,6 +19,8 @@ public class Display extends javax.swing.JFrame {
     ImageIcon deletePNG = new ImageIcon("delete.png");
     public Display() {
         initComponents();
+        String underline = "<html><u>Task Name</u></html>";
+        activityName.setText(underline);
         
         getContentPane().setBackground(Color.orange);
         delete.setIcon(deletePNG);
@@ -33,7 +35,11 @@ public class Display extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        title = new javax.swing.JLabel();
+        createPopUp = new javax.swing.JFrame();
+        createTitle = new javax.swing.JLabel();
+        startTime = new javax.swing.JLabel();
+        timePicker1 = new com.github.lgooddatepicker.components.TimePicker();
+        day = new javax.swing.JLabel();
         create = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
         timeLabel = new javax.swing.JLabel();
@@ -42,12 +48,52 @@ public class Display extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         edit = new javax.swing.JButton();
         delete = new javax.swing.JButton();
+        subActivity1 = new javax.swing.JRadioButton();
+        subActivity2 = new javax.swing.JRadioButton();
+        subActivity3 = new javax.swing.JRadioButton();
+        activityName = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
+
+        createTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        createTitle.setText("Create Task");
+
+        startTime.setText("Start Time:");
+
+        javax.swing.GroupLayout createPopUpLayout = new javax.swing.GroupLayout(createPopUp.getContentPane());
+        createPopUp.getContentPane().setLayout(createPopUpLayout);
+        createPopUpLayout.setHorizontalGroup(
+            createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createPopUpLayout.createSequentialGroup()
+                .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createPopUpLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(createTitle))
+                    .addGroup(createPopUpLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(startTime)))
+                .addContainerGap(152, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPopUpLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(timePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
+        );
+        createPopUpLayout.setVerticalGroup(
+            createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createPopUpLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(createTitle)
+                .addGap(18, 18, 18)
+                .addComponent(startTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(timePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 20)); // NOI18N
-        title.setForeground(new java.awt.Color(153, 153, 255));
-        title.setText("Date");
+        day.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        day.setForeground(new java.awt.Color(153, 153, 255));
+        day.setText("Date");
 
         create.setText("Create Activity");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +105,7 @@ public class Display extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(255, 178, 0));
         panel1.setForeground(new java.awt.Color(255, 153, 0));
 
+        timeLabel.setForeground(new java.awt.Color(51, 102, 255));
         timeLabel.setText("Time:");
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -71,6 +118,31 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        subActivity1.setText("Sub-task 1");
+        subActivity1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subActivity1ActionPerformed(evt);
+            }
+        });
+
+        subActivity2.setText("Sub-task 2");
+        subActivity2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subActivity2ActionPerformed(evt);
+            }
+        });
+
+        subActivity3.setText("Sub-task 3");
+        subActivity3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subActivity3ActionPerformed(evt);
+            }
+        });
+
+        activityName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        activityName.setForeground(new java.awt.Color(51, 102, 255));
+        activityName.setText("Task Name");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -79,12 +151,26 @@ public class Display extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(timeLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(activityName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(subActivity1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 81, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(subActivity2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subActivity3, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator5)
         );
@@ -94,55 +180,87 @@ public class Display extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(timeLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(edit)
-                                .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(timeLabel))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(edit))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(subActivity1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subActivity2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subActivity3)))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(activityName)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        title.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(51, 153, 255));
+        title.setText("Daily Schedule");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(title)
+                .addComponent(day)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(title)
+                .addGap(86, 86, 86)
                 .addComponent(create)
-                .addGap(25, 25, 25))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(day)
                     .addComponent(create)
                     .addComponent(title))
-                .addGap(26, 26, 26)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-        // TODO add your handling code here:
+        createPopUp.setVisible(true);
     }//GEN-LAST:event_createActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteActionPerformed
+
+    private void subActivity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subActivity1ActionPerformed
+
+    private void subActivity2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subActivity2ActionPerformed
+
+    private void subActivity3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subActivity3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,14 +298,23 @@ public class Display extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel activityName;
     private javax.swing.JButton create;
+    private javax.swing.JFrame createPopUp;
+    private javax.swing.JLabel createTitle;
+    private javax.swing.JLabel day;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private java.awt.Panel panel1;
+    private javax.swing.JLabel startTime;
+    private javax.swing.JRadioButton subActivity1;
+    private javax.swing.JRadioButton subActivity2;
+    private javax.swing.JRadioButton subActivity3;
     private javax.swing.JLabel timeLabel;
+    private com.github.lgooddatepicker.components.TimePicker timePicker1;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
