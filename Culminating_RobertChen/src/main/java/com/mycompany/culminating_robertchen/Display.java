@@ -5,6 +5,9 @@
 package com.mycompany.culminating_robertchen;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.font.TextAttribute;
+import java.util.Map;
 
 /**
  *
@@ -17,6 +20,7 @@ public class Display extends javax.swing.JFrame {
      * Creates new form Display
      */
     ImageIcon deletePNG = new ImageIcon("delete.png");
+    int count1 = 0, count2 = 0, count3 = 0;
     public Display() {
         initComponents();
         String underline = "<html><u>Task Name</u></html>";
@@ -39,6 +43,7 @@ public class Display extends javax.swing.JFrame {
         createTitle = new javax.swing.JLabel();
         startTime = new javax.swing.JLabel();
         timePicker1 = new com.github.lgooddatepicker.components.TimePicker();
+        editPopUp = new javax.swing.JFrame();
         day = new javax.swing.JLabel();
         create = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
@@ -54,8 +59,8 @@ public class Display extends javax.swing.JFrame {
         activityName = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
 
-        createTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         createTitle.setText("Create Task");
+        createTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
         startTime.setText("Start Time:");
 
@@ -89,11 +94,22 @@ public class Display extends javax.swing.JFrame {
                 .addGap(117, 117, 117))
         );
 
+        javax.swing.GroupLayout editPopUpLayout = new javax.swing.GroupLayout(editPopUp.getContentPane());
+        editPopUp.getContentPane().setLayout(editPopUpLayout);
+        editPopUpLayout.setHorizontalGroup(
+            editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        editPopUpLayout.setVerticalGroup(
+            editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        day.setText("Date");
         day.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         day.setForeground(new java.awt.Color(153, 153, 255));
-        day.setText("Date");
 
         create.setText("Create Activity");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +121,8 @@ public class Display extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(255, 178, 0));
         panel1.setForeground(new java.awt.Color(255, 153, 0));
 
-        timeLabel.setForeground(new java.awt.Color(51, 102, 255));
         timeLabel.setText("Time:");
+        timeLabel.setForeground(new java.awt.Color(51, 102, 255));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -139,9 +155,9 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        activityName.setText("Task Name");
         activityName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         activityName.setForeground(new java.awt.Color(51, 102, 255));
-        activityName.setText("Task Name");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -204,14 +220,13 @@ public class Display extends javax.swing.JFrame {
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(activityName)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
+        title.setText("Daily Schedule");
         title.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         title.setForeground(new java.awt.Color(51, 153, 255));
-        title.setText("Daily Schedule");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,6 +258,7 @@ public class Display extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+        createPopUp.setSize(400, 675);
         createPopUp.setVisible(true);
     }//GEN-LAST:event_createActionPerformed
 
@@ -251,15 +267,36 @@ public class Display extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteActionPerformed
 
     private void subActivity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity1ActionPerformed
-        // TODO add your handling code here:
+        if (count1 == 0) {
+            Font font = new Font("Segoe UI", Font.PLAIN, 12);
+            Map attributes = font.getAttributes();
+            attributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+            Font newFont = new Font(attributes);
+            subActivity1.setFont(newFont);
+            count1 ++;
+        } else {
+            Font font = new Font("Segoe UI", Font.PLAIN, 12);
+            Map attributes = font.getAttributes();
+            attributes.remove(TextAttribute.STRIKETHROUGH);
+            Font newFont = new Font(attributes);
+            subActivity1.setFont(font);
+        }
     }//GEN-LAST:event_subActivity1ActionPerformed
 
     private void subActivity2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity2ActionPerformed
-        // TODO add your handling code here:
+        Font font = new Font("Segoe UI", Font.PLAIN, 12);
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+        Font newFont = new Font(attributes);
+        subActivity2.setFont(newFont);
     }//GEN-LAST:event_subActivity2ActionPerformed
 
     private void subActivity3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActivity3ActionPerformed
-        // TODO add your handling code here:
+        Font font = new Font("Segoe UI", Font.PLAIN, 12);
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+        Font newFont = new Font(attributes);
+        subActivity3.setFont(newFont);
     }//GEN-LAST:event_subActivity3ActionPerformed
 
     /**
@@ -305,6 +342,7 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JLabel day;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
+    private javax.swing.JFrame editPopUp;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
