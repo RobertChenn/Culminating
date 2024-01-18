@@ -8,6 +8,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.Map;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 
 /**
  *
