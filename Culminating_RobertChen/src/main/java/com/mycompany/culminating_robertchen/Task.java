@@ -29,6 +29,7 @@ public class Task {
         this.number = number;
     }
     
+    // Getters
     public String getName() {
         return name;
     }
@@ -59,6 +60,35 @@ public class Task {
     
     public int getNumber() {
         return number;
+    }
+    
+    // Setters
+    public String setName(String n) {
+        return name = n;
+    }
+
+    public String setStartTime(String st) {
+        return startTime = st;
+    }
+
+    public String setEndTime(String et) {
+        return endTime = et;
+    }
+
+    public String setSubtask1(String sb1) {
+        return subtask1 = sb1;
+    }
+
+    public String setSubtask2(String sb2) {
+        return subtask2 = sb2;
+    }
+
+    public String setSubtask3(String sb3) {
+        return subtask3 = sb3;
+    }
+
+    public boolean setRepeating(boolean r) {
+        return repeating = r;
     }
     
     @Override

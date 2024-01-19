@@ -25,39 +25,106 @@ public class Display extends javax.swing.JFrame {
      * Creates new form Display
      */
     ImageIcon deletePNG = new ImageIcon("delete.png");
-    String eventName, beginTime, finishTime, subtaskOne, subtaskTwo, subtaskThree;
+    String eventName, beginTime, finishTime, subtaskOne, subtaskTwo, subtaskThree, n, st, 
+            et, sb1, sb2, sb3;
     boolean daily = false;
     int count1 = 0, count2 = 0, count3 = 0, id = 0;
     ArrayList<Task> tasks = new ArrayList<>();
+    ArrayList<Task> addedTask = new ArrayList<>();
     ButtonGroup group = new ButtonGroup();
     
     public Display() {
         initComponents();
         String underline = "<html><u>Task Name</u></html>";
         activityName.setText(underline);
-        group.add(yes);
-        group.add(no);
+        group.add(yesCreate);
+        group.add(noCreate);
         
         getContentPane().setBackground(Color.orange);
         delete.setIcon(deletePNG);
     }
     
+    // Checks if the text areas in the create popup are empty
     public boolean checkEmpty() {
-        if (taskName.getText().isEmpty() || startTime.getText().isEmpty() || endTime.getText().isEmpty()) {
-            return true;
+        if (createPopUp.isVisible() == true)  {
+            if (createTaskName.getText().isEmpty() || createStartTime.getText().isEmpty()
+                    || createEndTime.getText().isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            if (editTaskName.getText().isEmpty() || editStartTime.getText().isEmpty()
+                    || editEndTime.getText().isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
     
+    // Clears everything on the create popup
     public void clear() {
-        taskName.setText("");
-        startTime.setText("");
-        endTime.setText("");
-        subtask1.setText("");
-        subtask2.setText("");
-        subtask3.setText("");
+        createTaskName.setText("");
+        createStartTime.setText("");
+        createEndTime.setText("");
+        createSubtask1.setText("");
+        createSubtask2.setText("");
+        createSubtask3.setText("");
         group.clearSelection();
+    }
+    
+    // Sets the task on the home page to have the information inputted in the create popup
+    public void addTask(String n, String st, String et, String sb1, String sb2, String sb3) {
+        n = addedTask.get(0).getName();
+        activityName.setText(n);
+        st = addedTask.get(0).getStartTime();
+        startTaskTime.setText(st);
+        et = addedTask.get(0).getEndTime();
+        endTaskTime.setText(et);
+        sb1 = addedTask.get(0).getSubtask1();
+        subActivity1.setText(sb1);
+        sb2 = addedTask.get(0).getSubtask2();
+        subActivity2.setText(sb2);
+        sb3 = addedTask.get(0).getSubtask3();
+        subActivity3.setText(sb3);
+    }
+    
+    // Gets the information of a task
+    public void getTask(String n, String st, String et, String sb1, String sb2, String sb3) {
+        n = addedTask.get(0).getName();
+        editTaskName.setText(n);
+        st = addedTask.get(0).getStartTime();
+        editStartTime.setText(st);
+        et = addedTask.get(0).getEndTime();
+        editEndTime.setText(et);
+        sb1 = addedTask.get(0).getSubtask1();
+        editSubtask1.setText(sb1);
+        sb2 = addedTask.get(0).getSubtask2();
+        editSubtask2.setText(sb2);
+        sb3 = addedTask.get(0).getSubtask3();
+        editSubtask3.setText(sb3);
+    }
+    
+    // Gets the information
+    public void getInfo(int selectedId) {
+        n = addedTask.get(selectedId).getName();
+        st = addedTask.get(selectedId).getStartTime();
+        et = addedTask.get(selectedId).getEndTime();
+        sb1 = addedTask.get(selectedId).getSubtask1();
+        sb2 = addedTask.get(selectedId).getSubtask2();
+        sb3 = addedTask.get(selectedId).getSubtask3();
+    }
+    
+    // Fills in the text areas for the edit popup
+    public void editTask(int selectedId, String na, String stt, String ent, String sub1, 
+            String sub2, String sub3) {
+        tasks.get(selectedId).setName(na);
+        tasks.get(selectedId).setStartTime(stt);
+        tasks.get(selectedId).setEndTime(ent);
+        tasks.get(selectedId).setSubtask1(sub1);
+        tasks.get(selectedId).setSubtask2(sub2);
+        tasks.get(selectedId).setSubtask3(sub3);
     }
 
     /**
@@ -71,29 +138,46 @@ public class Display extends javax.swing.JFrame {
 
         createPopUp = new javax.swing.JFrame();
         createTitle = new javax.swing.JLabel();
-        startTimePrompt = new javax.swing.JLabel();
-        startTime = new com.github.lgooddatepicker.components.TimePicker();
-        endTimePrompt = new javax.swing.JLabel();
-        endTime = new com.github.lgooddatepicker.components.TimePicker();
-        taskNamePrompt = new javax.swing.JLabel();
-        subtask1Prompt = new javax.swing.JLabel();
-        subtask2Prompt = new javax.swing.JLabel();
-        subtask3Prompt = new javax.swing.JLabel();
-        taskName = new javax.swing.JTextField();
-        subtask1 = new javax.swing.JTextField();
-        subtask2 = new javax.swing.JTextField();
-        subtask3 = new javax.swing.JTextField();
-        repeatingTaskPrompt = new javax.swing.JLabel();
-        yes = new javax.swing.JToggleButton();
-        no = new javax.swing.JToggleButton();
+        createStartTimePrompt = new javax.swing.JLabel();
+        createStartTime = new com.github.lgooddatepicker.components.TimePicker();
+        createEndTimePrompt = new javax.swing.JLabel();
+        createEndTime = new com.github.lgooddatepicker.components.TimePicker();
+        createTaskNamePrompt = new javax.swing.JLabel();
+        createSubtask1Prompt = new javax.swing.JLabel();
+        createSubtask2Prompt = new javax.swing.JLabel();
+        createSubtask3Prompt = new javax.swing.JLabel();
+        createTaskName = new javax.swing.JTextField();
+        createSubtask1 = new javax.swing.JTextField();
+        createSubtask2 = new javax.swing.JTextField();
+        createSubtask3 = new javax.swing.JTextField();
+        createRepeatingTaskPrompt = new javax.swing.JLabel();
+        yesCreate = new javax.swing.JToggleButton();
+        noCreate = new javax.swing.JToggleButton();
         createTask = new javax.swing.JButton();
         createOutput = new javax.swing.JTextField();
         editPopUp = new javax.swing.JFrame();
+        editTaskNamePrompt = new javax.swing.JLabel();
+        editTask = new javax.swing.JButton();
+        editSubtask1Prompt = new javax.swing.JLabel();
+        editCreateOutput = new javax.swing.JTextField();
+        editSubtask2Prompt = new javax.swing.JLabel();
+        editSubtask3Prompt = new javax.swing.JLabel();
+        editTaskName = new javax.swing.JTextField();
+        editSubtask1 = new javax.swing.JTextField();
+        editCreateTitle = new javax.swing.JLabel();
+        editSubtask2 = new javax.swing.JTextField();
+        editStartTimePrompt = new javax.swing.JLabel();
+        editSubtask3 = new javax.swing.JTextField();
+        editStartTime = new com.github.lgooddatepicker.components.TimePicker();
+        editRepeatingTaskPrompt = new javax.swing.JLabel();
+        editEndTimePrompt = new javax.swing.JLabel();
+        yesEdit = new javax.swing.JToggleButton();
+        editEndTime = new com.github.lgooddatepicker.components.TimePicker();
+        noEdit = new javax.swing.JToggleButton();
         buttonGroup = new javax.swing.ButtonGroup();
         day = new javax.swing.JLabel();
         create = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
-        timeLabel = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
@@ -103,36 +187,40 @@ public class Display extends javax.swing.JFrame {
         subActivity2 = new javax.swing.JRadioButton();
         subActivity3 = new javax.swing.JRadioButton();
         activityName = new javax.swing.JLabel();
+        startTaskTime = new javax.swing.JLabel();
+        startTimeLabel = new javax.swing.JLabel();
+        endTimeLabel = new javax.swing.JLabel();
+        endTaskTime = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
 
-        createTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         createTitle.setText("Create Task");
+        createTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
-        startTimePrompt.setText("Start Time:");
+        createStartTimePrompt.setText("Start Time:");
 
-        endTimePrompt.setText("End Time:");
+        createEndTimePrompt.setText("End Time:");
 
-        taskNamePrompt.setText("Task Name:");
+        createTaskNamePrompt.setText("Task Name:");
 
-        subtask1Prompt.setText("Subtask 1:");
+        createSubtask1Prompt.setText("Subtask 1:");
 
-        subtask2Prompt.setText("Subtask 2:");
+        createSubtask2Prompt.setText("Subtask 2:");
 
-        subtask3Prompt.setText("Subtask 3:");
+        createSubtask3Prompt.setText("Subtask 3:");
 
-        repeatingTaskPrompt.setText("Repeating Task:");
+        createRepeatingTaskPrompt.setText("Repeating Task:");
 
-        yes.setText("Yes");
-        yes.addActionListener(new java.awt.event.ActionListener() {
+        yesCreate.setText("Yes");
+        yesCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yesActionPerformed(evt);
+                yesCreateActionPerformed(evt);
             }
         });
 
-        no.setText("No");
-        no.addActionListener(new java.awt.event.ActionListener() {
+        noCreate.setText("No");
+        noCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noActionPerformed(evt);
+                noCreateActionPerformed(evt);
             }
         });
 
@@ -162,40 +250,38 @@ public class Display extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(createPopUpLayout.createSequentialGroup()
-                                .addComponent(taskNamePrompt)
+                                .addComponent(createTaskNamePrompt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(taskName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(createTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(createPopUpLayout.createSequentialGroup()
-                                .addComponent(startTimePrompt)
+                                .addComponent(createStartTimePrompt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(startTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(createStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)
-                                .addComponent(endTimePrompt)
+                                .addComponent(createEndTimePrompt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(endTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(createEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createPopUpLayout.createSequentialGroup()
-                                    .addComponent(subtask3Prompt)
+                                    .addComponent(createSubtask3Prompt)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(subtask3))
+                                    .addComponent(createSubtask3))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createPopUpLayout.createSequentialGroup()
-                                    .addComponent(subtask2Prompt)
+                                    .addComponent(createSubtask2Prompt)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(subtask2))
+                                    .addComponent(createSubtask2))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createPopUpLayout.createSequentialGroup()
-                                    .addComponent(subtask1Prompt)
+                                    .addComponent(createSubtask1Prompt)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(subtask1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(createSubtask1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(createOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(createPopUpLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(repeatingTaskPrompt)
+                        .addComponent(createRepeatingTaskPrompt)
                         .addGap(18, 18, 18)
-                        .addComponent(yes)
+                        .addComponent(yesCreate)
                         .addGap(30, 30, 30)
-                        .addComponent(no))
-                    .addGroup(createPopUpLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(createOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(noCreate)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         createPopUpLayout.setVerticalGroup(
@@ -205,31 +291,31 @@ public class Display extends javax.swing.JFrame {
                 .addComponent(createTitle)
                 .addGap(36, 36, 36)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(taskNamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taskName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createTaskNamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(startTimePrompt)
-                    .addComponent(startTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endTimePrompt)
-                    .addComponent(endTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createStartTimePrompt)
+                    .addComponent(createStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createEndTimePrompt)
+                    .addComponent(createEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(subtask1Prompt)
-                    .addComponent(subtask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createSubtask1Prompt)
+                    .addComponent(createSubtask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(subtask2Prompt)
-                    .addComponent(subtask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createSubtask2Prompt)
+                    .addComponent(createSubtask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(subtask3Prompt)
-                    .addComponent(subtask3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createSubtask3Prompt)
+                    .addComponent(createSubtask3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(createPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(repeatingTaskPrompt)
-                    .addComponent(yes)
-                    .addComponent(no))
+                    .addComponent(createRepeatingTaskPrompt)
+                    .addComponent(yesCreate)
+                    .addComponent(noCreate))
                 .addGap(18, 18, 18)
                 .addComponent(createTask)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -237,22 +323,141 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        editTaskNamePrompt.setText("Task Name:");
+
+        editTask.setText("Edit");
+        editTask.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTaskActionPerformed(evt);
+            }
+        });
+
+        editSubtask1Prompt.setText("Subtask 1:");
+
+        editCreateOutput.setEditable(false);
+
+        editSubtask2Prompt.setText("Subtask 2:");
+
+        editSubtask3Prompt.setText("Subtask 3:");
+
+        editCreateTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        editCreateTitle.setText("Edit Task");
+
+        editStartTimePrompt.setText("Start Time:");
+
+        editRepeatingTaskPrompt.setText("Repeating Task:");
+
+        editEndTimePrompt.setText("End Time:");
+
+        yesEdit.setText("Yes");
+        yesEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesEditActionPerformed(evt);
+            }
+        });
+
+        noEdit.setText("No");
+        noEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noEditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editPopUpLayout = new javax.swing.GroupLayout(editPopUp.getContentPane());
         editPopUp.getContentPane().setLayout(editPopUpLayout);
         editPopUpLayout.setHorizontalGroup(
             editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(editPopUpLayout.createSequentialGroup()
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editPopUpLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editPopUpLayout.createSequentialGroup()
+                                .addComponent(editTaskNamePrompt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editPopUpLayout.createSequentialGroup()
+                                    .addComponent(editSubtask3Prompt)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(editSubtask3))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editPopUpLayout.createSequentialGroup()
+                                    .addComponent(editSubtask2Prompt)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(editSubtask2))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editPopUpLayout.createSequentialGroup()
+                                    .addComponent(editSubtask1Prompt)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(editSubtask1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(editPopUpLayout.createSequentialGroup()
+                                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(editCreateTitle)
+                                    .addGroup(editPopUpLayout.createSequentialGroup()
+                                        .addComponent(editStartTimePrompt)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(editStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(17, 17, 17)
+                                        .addComponent(editEndTimePrompt)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editCreateOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(editPopUpLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(editRepeatingTaskPrompt)
+                        .addGap(18, 18, 18)
+                        .addComponent(yesEdit)
+                        .addGap(30, 30, 30)
+                        .addComponent(noEdit)))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPopUpLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(editTask, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(162, 162, 162))
         );
         editPopUpLayout.setVerticalGroup(
             editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(editPopUpLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(editCreateTitle)
+                .addGap(28, 28, 28)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editTaskNamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editStartTimePrompt)
+                    .addComponent(editStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editEndTimePrompt)
+                    .addComponent(editEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editSubtask1Prompt)
+                    .addComponent(editSubtask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editSubtask2Prompt)
+                    .addComponent(editSubtask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editSubtask3Prompt)
+                    .addComponent(editSubtask3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(editPopUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editRepeatingTaskPrompt)
+                    .addComponent(yesEdit)
+                    .addComponent(noEdit))
+                .addGap(18, 18, 18)
+                .addComponent(editTask)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editCreateOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        day.setText("Date");
         day.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         day.setForeground(new java.awt.Color(153, 153, 255));
-        day.setText("Date");
 
         create.setText("Create Activity");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -264,12 +469,14 @@ public class Display extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(255, 178, 0));
         panel1.setForeground(new java.awt.Color(255, 153, 0));
 
-        timeLabel.setForeground(new java.awt.Color(51, 102, 255));
-        timeLabel.setText("Time:");
-
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         edit.setText("Edit");
+        edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editActionPerformed(evt);
+            }
+        });
 
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,18 +505,39 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        activityName.setText("Task Name");
         activityName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         activityName.setForeground(new java.awt.Color(51, 102, 255));
-        activityName.setText("Task Name");
+
+        startTaskTime.setText("12:00am");
+
+        startTimeLabel.setText("Start Time:");
+        startTimeLabel.setForeground(new java.awt.Color(51, 102, 255));
+
+        endTimeLabel.setForeground(new java.awt.Color(51, 102, 255));
+        endTimeLabel.setText("End Time:");
+
+        endTaskTime.setText("12:00pm");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(timeLabel)
-                .addGap(18, 18, 18)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(startTaskTime))
+                            .addComponent(startTimeLabel)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(endTaskTime)
+                            .addComponent(endTimeLabel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +549,7 @@ public class Display extends javax.swing.JFrame {
                                 .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(subActivity1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 81, Short.MAX_VALUE)))
+                                .addGap(0, 64, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
@@ -337,46 +565,43 @@ public class Display extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(startTimeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(startTaskTime)
+                        .addGap(18, 18, 18)
+                        .addComponent(endTimeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(endTaskTime))
+                    .addComponent(edit)
+                    .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(timeLabel))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(edit))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(subActivity1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(subActivity2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(subActivity3)))
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(activityName)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(32, 32, 32)
+                                .addComponent(subActivity1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subActivity2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subActivity3))
+                    .addComponent(activityName)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
+        title.setText("Daily Schedule");
         title.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         title.setForeground(new java.awt.Color(51, 153, 255));
-        title.setText("Daily Schedule");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(day)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(title)
@@ -388,7 +613,7 @@ public class Display extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(day)
                     .addComponent(create)
@@ -442,26 +667,28 @@ public class Display extends javax.swing.JFrame {
         subActivity3.setFont(newFont);
     }//GEN-LAST:event_subActivity3ActionPerformed
 
-    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+    private void yesCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesCreateActionPerformed
         daily = true;
-    }//GEN-LAST:event_yesActionPerformed
+    }//GEN-LAST:event_yesCreateActionPerformed
 
-    private void noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noActionPerformed
+    private void noCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noCreateActionPerformed
         daily = false;
-    }//GEN-LAST:event_noActionPerformed
+    }//GEN-LAST:event_noCreateActionPerformed
 
     private void createTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTaskActionPerformed
-        subtaskOne = subtask1.getText();
-        subtaskTwo = subtask2.getText(); 
-        subtaskThree = subtask3.getText();
+        subtaskOne = createSubtask1.getText();
+        subtaskTwo = createSubtask2.getText(); 
+        subtaskThree = createSubtask3.getText();
+        addedTask.clear();
         
         try {
-            eventName = taskName.getText();
-            beginTime = startTime.getText();
-            finishTime = endTime.getText();
+            eventName = createTaskName.getText();
+            beginTime = createStartTime.getText();
+            finishTime = createEndTime.getText();
             
             if (checkEmpty() == false) {
-                if (subtask1.getText().isEmpty() || subtask2.getText().isEmpty() || subtask3.getText().isEmpty()) {
+                if (createSubtask1.getText().isEmpty() || createSubtask2.getText().isEmpty() || 
+                        createSubtask3.getText().isEmpty()) {
                     subtaskOne = "N/A";
                     subtaskTwo = "N/A";
                     subtaskThree = "N/A";
@@ -471,6 +698,8 @@ public class Display extends javax.swing.JFrame {
                 Task newTask = new Task(eventName, beginTime, finishTime, subtaskOne, subtaskTwo,
                         subtaskThree, daily, id);
                 tasks.add(newTask);
+                addedTask.add(newTask);
+                addTask(eventName, beginTime, finishTime, subtaskOne, subtaskTwo, subtaskThree);
                 clear();
                 createPopUp.setVisible(false);
             } else {
@@ -481,6 +710,66 @@ public class Display extends javax.swing.JFrame {
             createOutput.setText("Please make sure you filled out every field");
         }
     }//GEN-LAST:event_createTaskActionPerformed
+
+    private void editTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTaskActionPerformed
+        subtaskOne = createSubtask1.getText();
+        subtaskTwo = createSubtask2.getText();
+        subtaskThree = createSubtask3.getText();
+        addedTask.clear();
+        System.out.println("k");
+
+        try {
+            System.out.println("09");
+            eventName = createTaskName.getText();
+            beginTime = createStartTime.getText();
+            finishTime = createEndTime.getText();
+
+            if (checkEmpty() == false) {
+                System.out.println("1");
+                if (createSubtask1.getText().isEmpty() || createSubtask2.getText().isEmpty() || 
+                        createSubtask3.getText().isEmpty()) {
+                    System.out.println("2");
+                    subtaskOne = "N/A";
+                    subtaskTwo = "N/A";
+                    subtaskThree = "N/A";
+                }
+                int j = 0;
+                System.out.println("f");
+                editTask(j, eventName, beginTime, finishTime, subtaskOne, 
+            subtaskTwo, subtaskThree);
+                System.out.println("hfd");
+                clear();
+                System.out.println("hsf");
+                editPopUp.setVisible(false);
+                System.out.println("qwe");
+            } else {
+                createOutput.setText("Please make sure you filled out every field");
+            }
+        } catch (Exception e) {
+            System.out.println("a");
+            createOutput.setText("Please make sure you filled out every field");
+        }
+    }//GEN-LAST:event_editTaskActionPerformed
+
+    private void yesEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesEditActionPerformed
+        daily = true;
+    }//GEN-LAST:event_yesEditActionPerformed
+
+    private void noEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noEditActionPerformed
+        daily = false;
+    }//GEN-LAST:event_noEditActionPerformed
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        editPopUp.setSize(400, 675);
+        editPopUp.setVisible(true);
+        n = addedTask.get(0).getName();
+        st = addedTask.get(0).getStartTime(); 
+        et = addedTask.get(0).getEndTime();
+        sb1 = addedTask.get(0).getSubtask1();
+        sb2 = addedTask.get(0).getSubtask2();
+        sb3 = addedTask.get(0).getSubtask3();
+        getTask(n, st, et, sb1, sb2, sb3);
+    }//GEN-LAST:event_editActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,37 +810,58 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JLabel activityName;
     private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton create;
+    private com.github.lgooddatepicker.components.TimePicker createEndTime;
+    private javax.swing.JLabel createEndTimePrompt;
     private javax.swing.JTextField createOutput;
     private javax.swing.JFrame createPopUp;
+    private javax.swing.JLabel createRepeatingTaskPrompt;
+    private com.github.lgooddatepicker.components.TimePicker createStartTime;
+    private javax.swing.JLabel createStartTimePrompt;
+    private javax.swing.JTextField createSubtask1;
+    private javax.swing.JLabel createSubtask1Prompt;
+    private javax.swing.JTextField createSubtask2;
+    private javax.swing.JLabel createSubtask2Prompt;
+    private javax.swing.JTextField createSubtask3;
+    private javax.swing.JLabel createSubtask3Prompt;
     private javax.swing.JButton createTask;
+    private javax.swing.JTextField createTaskName;
+    private javax.swing.JLabel createTaskNamePrompt;
     private javax.swing.JLabel createTitle;
     private javax.swing.JLabel day;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
+    private javax.swing.JTextField editCreateOutput;
+    private javax.swing.JLabel editCreateTitle;
+    private com.github.lgooddatepicker.components.TimePicker editEndTime;
+    private javax.swing.JLabel editEndTimePrompt;
     private javax.swing.JFrame editPopUp;
-    private com.github.lgooddatepicker.components.TimePicker endTime;
-    private javax.swing.JLabel endTimePrompt;
+    private javax.swing.JLabel editRepeatingTaskPrompt;
+    private com.github.lgooddatepicker.components.TimePicker editStartTime;
+    private javax.swing.JLabel editStartTimePrompt;
+    private javax.swing.JTextField editSubtask1;
+    private javax.swing.JLabel editSubtask1Prompt;
+    private javax.swing.JTextField editSubtask2;
+    private javax.swing.JLabel editSubtask2Prompt;
+    private javax.swing.JTextField editSubtask3;
+    private javax.swing.JLabel editSubtask3Prompt;
+    private javax.swing.JButton editTask;
+    private javax.swing.JTextField editTaskName;
+    private javax.swing.JLabel editTaskNamePrompt;
+    private javax.swing.JLabel endTaskTime;
+    private javax.swing.JLabel endTimeLabel;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JToggleButton no;
+    private javax.swing.JToggleButton noCreate;
+    private javax.swing.JToggleButton noEdit;
     private java.awt.Panel panel1;
-    private javax.swing.JLabel repeatingTaskPrompt;
-    private com.github.lgooddatepicker.components.TimePicker startTime;
-    private javax.swing.JLabel startTimePrompt;
+    private javax.swing.JLabel startTaskTime;
+    private javax.swing.JLabel startTimeLabel;
     private javax.swing.JRadioButton subActivity1;
     private javax.swing.JRadioButton subActivity2;
     private javax.swing.JRadioButton subActivity3;
-    private javax.swing.JTextField subtask1;
-    private javax.swing.JLabel subtask1Prompt;
-    private javax.swing.JTextField subtask2;
-    private javax.swing.JLabel subtask2Prompt;
-    private javax.swing.JTextField subtask3;
-    private javax.swing.JLabel subtask3Prompt;
-    private javax.swing.JTextField taskName;
-    private javax.swing.JLabel taskNamePrompt;
-    private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel title;
-    private javax.swing.JToggleButton yes;
+    private javax.swing.JToggleButton yesCreate;
+    private javax.swing.JToggleButton yesEdit;
     // End of variables declaration//GEN-END:variables
 }
