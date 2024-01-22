@@ -7,11 +7,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="createTask" min="-2" pref="65" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -26,45 +21,53 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="createTaskName" min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="createStartTimePrompt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="createStartTime" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                  <Component id="createEndTimePrompt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="createEndTime" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                                      <Component id="createTask" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="createSubtask3Prompt" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="createSubtask3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="createSubtask2Prompt" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="createSubtask2" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="createSubtask1Prompt" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="createSubtask1" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="createOutput" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="createRepeatingTaskPrompt" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="yesCreate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="noCreate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="createDurationPrompt" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="createDuration" min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="createStartTimePrompt" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="createStartTime" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="createSubtask3Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="createSubtask3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="createSubtask2Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="createSubtask2" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="createSubtask1Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="createSubtask1" min="-2" pref="72" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="createOutput" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="createRepeatingTaskPrompt" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="yesCreate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="noCreate" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -78,14 +81,17 @@
                       <Component id="createTaskNamePrompt" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="createTaskName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="42" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="createStartTimePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="createStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="createEndTimePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="createEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="createDurationPrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="createDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="createSubtask1Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="createSubtask1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,7 +116,7 @@
                   <Component id="createTask" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="createOutput" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,6 +128,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="33" type="rgb"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="createStartTimePrompt">
@@ -130,13 +139,6 @@
           </Properties>
         </Component>
         <Component class="com.github.lgooddatepicker.components.TimePicker" name="createStartTime">
-        </Component>
-        <Component class="javax.swing.JLabel" name="createEndTimePrompt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="End Time:"/>
-          </Properties>
-        </Component>
-        <Component class="com.github.lgooddatepicker.components.TimePicker" name="createEndTime">
         </Component>
         <Component class="javax.swing.JLabel" name="createTaskNamePrompt">
           <Properties>
@@ -200,6 +202,13 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="createDuration">
+        </Component>
+        <Component class="javax.swing.JLabel" name="createDurationPrompt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Duration (Hours):"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="editPopUp">
@@ -208,64 +217,61 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="editStartTimePrompt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="editStartTime" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="editTaskNamePrompt" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editSubtask3Prompt" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="editTaskName" min="-2" pref="72" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="editSubtask3Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="editSubtask3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="editSubtask2Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="editSubtask2" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="editSubtask1Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="editSubtask1" min="-2" pref="72" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="editSubtask3" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="editCreateTitle" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="editStartTimePrompt" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="editStartTime" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Component id="editEndTimePrompt" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="editSubtask2Prompt" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="editEndTime" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editSubtask2" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="editCreateOutput" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="editSubtask1Prompt" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="editSubtask1" min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="editRepeatingTaskPrompt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="yesEdit" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="noEdit" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="editCreateTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editTask" min="-2" pref="54" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="editRepeatingTaskPrompt" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="yesEdit" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="noEdit" min="-2" max="-2" attributes="0"/>
+                          <Component id="editTaskNamePrompt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="editTaskName" min="-2" pref="72" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="editDurationPrompt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="editDuration" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="editOutput" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="editTask" min="-2" pref="54" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -279,14 +285,17 @@
                       <Component id="editTaskNamePrompt" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="editTaskName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="editStartTimePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="editStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="editEndTimePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="editEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="editDurationPrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="editDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="editSubtask1Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="editSubtask1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -309,9 +318,9 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="editTask" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="editCreateOutput" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="editOutput" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -335,7 +344,7 @@
             <Property name="text" type="java.lang.String" value="Subtask 1:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="editCreateOutput">
+        <Component class="javax.swing.JTextField" name="editOutput">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -356,10 +365,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="editCreateTitle">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Task"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Edit Task"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="33" type="rgb"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="editSubtask2">
@@ -378,9 +390,9 @@
             <Property name="text" type="java.lang.String" value="Repeating Task:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="editEndTimePrompt">
+        <Component class="javax.swing.JLabel" name="editDurationPrompt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="End Time:"/>
+            <Property name="text" type="java.lang.String" value="Duration (Hours):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="yesEdit">
@@ -391,8 +403,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesEditActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.github.lgooddatepicker.components.TimePicker" name="editEndTime">
-        </Component>
         <Component class="javax.swing.JToggleButton" name="noEdit">
           <Properties>
             <Property name="text" type="java.lang.String" value="No"/>
@@ -401,10 +411,96 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noEditActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JTextField" name="editDuration">
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup">
     </Component>
+    <Container class="javax.swing.JFrame" name="notification">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="notificationTitle" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="panel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="notificationTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="notificationTitle">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="36" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Time to work!"/>
+          </Properties>
+        </Component>
+        <Container class="java.awt.Panel" name="panel2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="82" max="32767" attributes="0"/>
+                      <Component id="notificationMessage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="notificationMessage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="notificationMessage">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Your task is taking place now!"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -431,26 +527,37 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="day" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="taskSelector" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="title" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="create" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
           <Component id="panel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="homeOutput" min="-2" pref="559" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="day" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="create" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="title" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="taskSelector" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="panel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="homeOutput" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="10" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -499,16 +606,20 @@
                               </Group>
                               <Component id="startTimeLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="endTaskTime" min="-2" max="-2" attributes="0"/>
-                              <Component id="endTimeLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="durationLabel" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="durationTime" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -521,7 +632,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="subActivity1" min="-2" pref="342" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="64" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -533,7 +644,7 @@
                               <Component id="subActivity2" min="-2" pref="342" max="-2" attributes="0"/>
                               <Component id="subActivity3" min="-2" pref="342" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="139" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -552,9 +663,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="startTaskTime" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="endTimeLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="durationLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="endTaskTime" min="-2" max="-2" attributes="0"/>
+                          <Component id="durationTime" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="edit" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -650,17 +761,17 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="endTimeLabel">
+        <Component class="javax.swing.JLabel" name="durationLabel">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Duration:"/>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="End Time:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="endTaskTime">
+        <Component class="javax.swing.JLabel" name="durationTime">
           <Properties>
-            <Property name="text" type="java.lang.String" value="12:00pm"/>
+            <Property name="text" type="java.lang.String" value="2 hours"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -674,6 +785,24 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="taskSelector">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taskSelectorActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="homeOutput">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

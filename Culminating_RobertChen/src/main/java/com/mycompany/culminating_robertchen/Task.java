@@ -11,22 +11,20 @@ package com.mycompany.culminating_robertchen;
 public class Task {
     private String name;
     private String startTime;
-    private String endTime;
+    private double duration;
     private String subtask1;
     private String subtask2;
     private String subtask3;
     private boolean repeating;
-    private int number;
     
-    public Task (String name, String startTime, String endTime, String subtask1, String subtask2, String subtask3, boolean repeating, int number) {
+    public Task (String name, String startTime, double duration, String subtask1, String subtask2, String subtask3, boolean repeating) {
         this.name = name;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.duration = duration;
         this.subtask1 = subtask1;
         this.subtask2 = subtask2;
         this.subtask3 = subtask3;
         this.repeating = repeating;
-        this.number = number;
     }
     
     // Getters
@@ -38,8 +36,8 @@ public class Task {
         return startTime;
     }
     
-    public String getEndTime() {
-        return endTime;
+    public double getDuration() {
+        return duration;
     }
     
     public String getSubtask1() {
@@ -58,10 +56,6 @@ public class Task {
         return repeating;
     }
     
-    public int getNumber() {
-        return number;
-    }
-    
     // Setters
     public String setName(String n) {
         return name = n;
@@ -71,8 +65,8 @@ public class Task {
         return startTime = st;
     }
 
-    public String setEndTime(String et) {
-        return endTime = et;
+    public double setDuration(double et) {
+        return duration = et;
     }
 
     public String setSubtask1(String sb1) {
@@ -93,7 +87,7 @@ public class Task {
     
     @Override
     public String toString() {
-        return name + ", " + startTime + ", " + endTime + ", " + subtask1 + ", " + subtask2 + ", " + subtask3
-                + ", " + repeating + ", " + number + "\n";
+        return name + ", " + startTime + ", " + duration + ", " + subtask1 + ", " + subtask2 + ", " + subtask3
+                + ", " + repeating + "\n";
     }
 }
